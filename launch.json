@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "StateToken",
+    "name": "State Encryption",
+    "symbol": "STATE",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8800,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x7fa42b3818cf074169acacfb75880531aaef3303"
+  },
+  "notes": "StateToken (src/StateToken.sol) is a plain fixed-supply ERC-20: name 'State Encryption', symbol 'STATE', 18 decimals. Its constructor takes no arguments and mints the whole supply of 1,000,000 STATE (1000000000000000000000000 minor units) once to msg.sender, which on the launch is the ProjectFactory. totalSupply() is a compile-time constant; there is no mint, burn, burnFrom, owner, minter, pause, blocklist, freeze, fee, tax, reflection, upgrade path, delegatecall or selfdestruct, so the supply can never grow and no privileged party exists. Transfers move exactly the amount requested for every caller, so the factory, the PoolManager and the launch's MerkleDistributor need no exemption. Standard EIP-20 surface plus increaseAllowance/decreaseAllowance; an allowance of type(uint256).max is unlimited and not decremented. There are no application contracts. The pool pairs with IMD at 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 at the launch policy's 1.25% fee; initialPrice is provenance only and the deployer derives the opening price from economics.initialMarketCapWei (2,500 IMD for the whole supply) and totalSupply. The factory pays the supply out: 88% seeds the pool single-sided and 2% goes to remainderTo; the swarm's share is taken by the factory and is not part of this manifest."
+}
